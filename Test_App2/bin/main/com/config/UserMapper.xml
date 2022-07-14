@@ -50,11 +50,11 @@
 		 #{CO_EMAIL}, #{CO_NUMBER}, #{CATEGORY_ID}, #{SIZE_ID} )
 	</insert>
 
-	<!-- 개인회원 가입 -->
+	<!-- 개인회원 가입 reg_date랑 curdate 삭제-->
 	<insert id="insertIndv" parameterType="IndvUser">
-		INSERT INTO PERSONAL(P_ID, P_PW, NAME, P_EMAIL, PHONE, BIRTH_DATE, AGE, GENDER, reg_date)
+		INSERT INTO PERSONAL(P_ID, P_PW, NAME, P_EMAIL, PHONE, BIRTH_DATE, AGE, GENDER)
 		VALUES( #{P_ID}, #{P_PW}, #{NAME}, #{P_EMAIL},
-		 #{PHONE}, #{BIRTH_DATE}, #{AGE}, #{GENDER}, CURDATE())
+		 #{PHONE}, #{BIRTH_DATE}, #{AGE}, #{GENDER})
 	</insert>
 	
 	<insert id="insertCareer" parameterType="careerInfo">

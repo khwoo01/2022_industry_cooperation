@@ -1,3 +1,4 @@
+
 <template>
   <div class="jobposting">
     <!-- 기존 게시판 코드 -->

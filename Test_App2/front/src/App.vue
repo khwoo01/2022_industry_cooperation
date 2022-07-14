@@ -31,6 +31,7 @@
       <router-view/>
     </div>
   </div>
+
 </template>
 
 <script>
@@ -44,6 +45,7 @@ export default{
       loginUser:'',
     }
   },
+  
   methods:{
     checkSession(){
       http
