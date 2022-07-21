@@ -17,9 +17,9 @@
 
 	<!-- 고객사 게시판 조회 -->
 	<select id="compList" resultType="CompanyList"> 
-		SELECT CO_NO, COMPANY, HR, CO_EMAIL, CO_CATEGORY, CO_SIZE  
-		FROM COMPANY, CATEGORY, SIZE
-		WHERE COMPANY.CATEGORY_ID = CATEGORY.CATEGORY_ID and COMPANY.SIZE_ID = SIZE.SIZE_ID; 
+		SELECT CO_NO, COMPANY, HR, CO_EMAIL, CATEGORY_ID, SIZE_ID  
+		FROM COMPANY
+		WHERE COMPANY.CATEGORY_ID = COMPANY.CATEGORY_ID and COMPANY.SIZE_ID = COMPANY.SIZE_ID; 
 	</select>
 	
 	<!-- 특정 기업의 CO_NO 조회 -->
@@ -38,9 +38,13 @@
 	
 	<!-- 포지션 DB 등록 -->
 	<insert id="insertPos" parameterType="position">
-		INSERT INTO NOTICE_POST(POSITION, QUALIFY, EMPLOY_TYPE,	JOB, REGI_DT, created_at, updated_at, CO_NO)
+		<!--INSERT INTO NOTICE_POST(POSITION, QUALIFY, EMPLOY_TYPE,	JOB, REGI_DT, created_at, updated_at, CO_NO)
 		VALUES( #{POSITION}, #{QUALIFY}, #{EMPLOY_TYPE}, #{JOB},
-		 #{REGI_DT}, now(), now(), #{CO_NO} )
+		 #{REGI_DT}, now(), now(), #{CO_NO} )	
+		-->
+		INSERT INTO NOTICE_POST(POSITION, QUALIFY, EMPLOY_TYPE,	JOB, REGI_DT, POST_NO, CO_ID)
+		VALUES( #{POSITION}, #{QUALIFY}, #{EMPLOY_TYPE}, #{JOB},
+		 #{REGI_DT},  #{CO_ID} )
 	</insert>
 
 	<!-- 기업회원 가입 -->
@@ -50,11 +54,11 @@
 		 #{CO_EMAIL}, #{CO_NUMBER}, #{CATEGORY_ID}, #{SIZE_ID} )
 	</insert>
 
-	<!-- 개인회원 가입 reg_date랑 curdate 삭제-->
+	<!-- 개인회원 가입 -->
 	<insert id="insertIndv" parameterType="IndvUser">
-		INSERT INTO PERSONAL(P_ID, P_PW, NAME, P_EMAIL, PHONE, BIRTH_DATE, AGE, GENDER)
+		INSERT INTO PERSONAL(P_ID, P_PW, NAME, P_EMAIL, PHONE, BIRTH_DATE, GENDER,reg_data)
 		VALUES( #{P_ID}, #{P_PW}, #{NAME}, #{P_EMAIL},
-		 #{PHONE}, #{BIRTH_DATE}, #{AGE}, #{GENDER})
+		 #{PHONE}, #{BIRTH_DATE},  #{GENDER},CURDATE())
 	</insert>
 	
 	<insert id="insertCareer" parameterType="careerInfo">

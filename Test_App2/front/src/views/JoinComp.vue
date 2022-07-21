@@ -129,7 +129,7 @@ export default {
           hr: this.form.hr,
           co_EMAIL: this.form.email,
           co_NUMBER: this.form.contact,
-          category_ID: this.form.category,
+          category: this.form.category,
           size_ID: this.form.size
         })
         .then((response) => {

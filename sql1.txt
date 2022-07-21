@@ -78,9 +78,10 @@ CREATE TABLE PERSONAL (
 	NAME       VARCHAR(20) NOT NULL, -- 성명
 	P_EMAIL    VARCHAR(50) NOT NULL, -- 이메일
 	PHONE      VARCHAR(20) NOT NULL, -- 전화번호
-	BIRTH_DATE DATE        NOT NULL,  -- 생년월일
-	AGE       VARCHAR(20) NOT NULL, -- 나이
-	GENDER       VARCHAR(20) NOT NULL -- 성별
+	BIRTH_DATE  INT   NULL,  -- 생년월일
+	FILE     VARCHAR(500) NULL, -- 나이
+	GENDER     INT  NULL, -- 성별
+	reg_data   DATE   NULL	-- 서비스 가입 일자
 );
 
 -- 개인
@@ -93,10 +94,13 @@ ALTER TABLE PERSONAL
 --  기업
 CREATE TABLE COMPANY (
 	CO_ID     VARCHAR(20) NOT NULL, -- 기업아이디
+	CO_PW     VARCHAR(20) NOT NULL, -- 기업비밀번호
 	COMPANY   VARCHAR(50) NOT NULL, -- 기업명
 	HR        VARCHAR(50) NOT NULL, -- HR담장자명
 	CO_EMAIL  VARCHAR(50) NOT NULL, -- 기업이메일
-	CO_NUMBER VARCHAR(20) NOT NULL  -- 기업전화번호
+	CO_NUMBER VARCHAR(20) NOT NULL,  -- 기업전화번호
+	CATEGORY_ID  VARCHAR(20) NOT NULL,  -- 기업 업종
+	SIZE_ID	  VARCHAR(20) NOT NULL  -- 기업 규모
 );
 
 --  기업
@@ -111,10 +115,12 @@ CREATE TABLE NOTICE_post (
 	POST_NO     INT UNSIGNED  NOT NULL, -- 게시물 번호
 	CO_ID       VARCHAR(20)   NOT NULL, -- 기업아이디
 	POSITION    VARCHAR(100)  NOT NULL, -- 포지션명
-	QUALIFY     VARCHAR(800)  NOT NULL, -- 자격요건
+	QUALIFY    VARCHAR(800)  NOT NULL, -- 자격요건
 	JOB         VARCHAR(1000) NOT NULL, -- 직무설명
 	EMPLOY_TYPE VARCHAR(6)    NOT NULL, -- 고용형태
-	REGI_DT     DATETIME      NOT NULL  -- 진행상태
+	REGI_DT    DATETIME    NOT NULL,  -- 진행상태
+	created_at	   TIMESTAMP NOT NULL, -- 생성일자	
+	updated_at  TIMESTAMP NOT NULL -- 수정일자
 );
 
 -- 공고게시판
@@ -149,8 +155,9 @@ CREATE TABLE HAKSA (
 	P_ID            VARCHAR(20) NOT NULL, -- 개인아이디
 	SCHOOL_NAME     VARCHAR(50) NOT NULL, -- 학교명
 	MAJOR           VARCHAR(20) NOT NULL, -- 전공
-	ADMISSION_DATE  DATE        NOT NULL, -- 입학년도
-	GRADUATION_DATE DATE        NOT NULL  -- 졸업년도
+	ADMISSION_DATE  DATE       NOT NULL, -- 입학년도
+	GRADUATION_DATE DATE       NOT NULL,  -- 졸업년도
+	DEGREE  VARCHAR(20)  NULL	-- 학위
 );
 
 -- 학적
@@ -158,7 +165,7 @@ ALTER TABLE HAKSA
 	ADD CONSTRAINT PK_HAKSA -- 학적 기본키
 		PRIMARY KEY (
 			P_ID,        -- 개인아이디
-			SCHOOL_NAME  -- 학교명
+			SCHOOL_NAME  -- 학교명 빼야하는 것이 아닌가?
 		);
 
 -- 경력
@@ -253,3 +260,42 @@ ALTER TABLE PROGRESS
 		REFERENCES PERSONAL ( -- 개인
 			P_ID -- 개인아이디
 		);
+
+
+
+
+
+
+
+
+
+
+-------------------
+	<!-- 기업회원 가입 -->
+	<insert id="insertComp" parameterType="CompUser">
+		INSERT INTO COMPANY(CO_ID, CO_PW, COMPANY, HR, CO_EMAIL, CO_NUMBER, CATEGORY_ID, SIZE_ID)
+		VALUES( #{CO_ID}, #{CO_PW}, #{COMPANY}, #{HR},
+		 #{CO_EMAIL}, #{CO_NUMBER}, #{CATEGORY_ID}, #{SIZE_ID} )
+	</insert>
+
+--------------------------
+-- 개인
+DROP TABLE IF EXISTS PERSONAL RESTRICT;
+
+--  기업
+DROP TABLE IF EXISTS COMPANY RESTRICT;
+
+-- 공고게시판
+DROP TABLE IF EXISTS NOTICE_post RESTRICT;
+
+-- 자격증
+DROP TABLE IF EXISTS LICENSE RESTRICT;
+
+-- 학적
+DROP TABLE IF EXISTS HAKSA RESTRICT;
+
+-- 경력
+DROP TABLE IF EXISTS CAREER RESTRICT;
+
+-- 진행상황
+DROP TABLE IF EXISTS PROGRESS RESTRICT;

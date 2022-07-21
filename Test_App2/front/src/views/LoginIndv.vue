@@ -54,12 +54,12 @@ export default {
         .then((response) => {
           if (response.data) {
             console.log(response.data);
-            alert("로그인 성공!");
+            alert("로그인 dltkd");
             this.$router.push({ name: "Home" });
             this.$router.go(0);
           } else {
             console.log(response.data);
-            alert("로그인 실패..ID/PW를 다시 확인해주세요.");
+            alert("로그인 실패..ID/PW를 다시 확인해주세요------");
             this.$router.go(0);
           }
         })

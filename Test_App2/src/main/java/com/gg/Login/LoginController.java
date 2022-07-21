@@ -14,63 +14,63 @@ import org.springframework.web.bind.annotation.RestController;
 public class LoginController {
 	@Autowired
 	LoginService service;
-	
-	// ·Î±×ÀÎ
+
+	// ï¿½Î±ï¿½ï¿½ï¿½
 	@PostMapping("/login")
 	public boolean Login(@RequestBody LoginDTO dto,
-			HttpServletRequest request){
+			HttpServletRequest request) {
 
 		System.out.println("***Login Controller..***");
 		System.out.println(" input ID: " + dto.getID());
 		System.out.println(" input PW: " + dto.getPW());
 		System.out.println(" input uc: " + dto.getUser_code());
-		
+		System.out.println(" @@@@@@@");
+
 		LoginDTO loginUser = service.checkLogin(dto);
-		
-		if(loginUser == null) {	// ·Î±×ÀÎ ½ÇÆÐÇÑ °æ¿ì
+		System.out.println(" @@@@@@@" + loginUser);
+		if (loginUser == null) { // ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 			System.out.println(" login failed...");
 			return false;
-		}
-		else {	// ·Î±×ÀÎ ¼º°øÇÑ °æ¿ì
+		} else { // ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 			System.out.println(" login success! getting session...");
-			HttpSession session = request.getSession();                     // ¼¼¼ÇÀÌ ÀÖÀ¸¸é ÀÖ´Â ¼¼¼Ç ¹ÝÈ¯, ¾øÀ¸¸é ½Å±Ô ¼¼¼ÇÀ» »ý¼ºÇÏ¿© ¹ÝÈ¯
-			session.setAttribute("loginUser", loginUser.getID());   // ¼¼¼Ç¿¡ ·Î±×ÀÎ È¸¿ø Á¤º¸ º¸°ü
+			HttpSession session = request.getSession(); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Å±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½È¯
+			session.setAttribute("loginUser", loginUser.getID()); // ï¿½ï¿½ï¿½Ç¿ï¿½ ï¿½Î±ï¿½ï¿½ï¿½ È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			session.setAttribute("usercode", loginUser.getUser_code());
 			System.out.println(" complete login!!:" + session.getAttribute("loginUser"));
 			return true;
 		}
 	}
-	
-	// ·Î±×¾Æ¿ô
+
+	// ï¿½Î±×¾Æ¿ï¿½
 	@PostMapping("/logout")
 	public void logout(HttpServletRequest request) {
 
-	    HttpSession session = request.getSession(false);
-	    if (session != null) {
-	        session.invalidate();   // ¼¼¼Ç ³¯¸²
-	    }
+		HttpSession session = request.getSession(false);
+		if (session != null) {
+			session.invalidate(); // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+		}
 	}
-	
-	// ·Î±×ÀÎ ¼¼¼Ç °Ë»ç
+
+	// ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½
 	@PostMapping("/check-session")
 	public String checkSession(HttpServletRequest request) {
-		
+
 		HttpSession session = request.getSession(false);
-	    if (session != null) {
-	        return session.getAttribute("loginUser").toString();
-	    }
-	    return null;
-	}
-	
-	// ·Î±×ÀÎ À¯ÀúÄÚµå °Ë»ç
-		@PostMapping("/check-usercode")
-		public boolean isCompUser(HttpServletRequest request) {
-			
-			HttpSession session = request.getSession(false);
-		    if (session != null) {
-		    	System.out.println(session.getAttribute("usercode").toString());
-		        return session.getAttribute("usercode").toString().equals("1");
-		    }
-		    return false;
+		if (session != null) {
+			return session.getAttribute("loginUser").toString();
 		}
+		return null;
+	}
+
+	// ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½ ï¿½Ë»ï¿½
+	@PostMapping("/check-usercode")
+	public boolean isCompUser(HttpServletRequest request) {
+
+		HttpSession session = request.getSession(false);
+		if (session != null) {
+			System.out.println(session.getAttribute("usercode").toString());
+			return session.getAttribute("usercode").toString().equals("1");
+		}
+		return false;
+	}
 }
