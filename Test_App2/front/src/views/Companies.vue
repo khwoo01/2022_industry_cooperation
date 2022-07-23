@@ -68,10 +68,10 @@ export default {
       fields:[
         {key:'co_NO', label:'No.'},
         {key:'company', label:'기업명'},
-        {key:'co_CATEGORY', label:'분야'},
-        {key:'co_SIZE', label:'기업규모'},
+        {key:'category_ID', label:'분야'},
+        {key:'size_ID', label:'기업규모'},/* 수정7-22 CO_SIZE -> SIZE_ID */
         {key:'hr', label:'HR담당자'},
-        {key:'co_EMAIL', label:'E-mail'}
+        {key:'co_EMAIL', label:'E-mail'}/* 수정7-22 SIZE_ID -> co_EMAIL */
       ],
       filter: ''
     }

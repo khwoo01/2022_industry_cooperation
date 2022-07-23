@@ -104,7 +104,7 @@ export default {
         hr: "",
         email: "",
         contact: "",
-        category: "",
+        category: "",/*수정7-22*/
         size: "",
       },
       categoryOptions: [
@@ -129,7 +129,7 @@ export default {
           hr: this.form.hr,
           co_EMAIL: this.form.email,
           co_NUMBER: this.form.contact,
-          category: this.form.category,
+          category_ID: this.form.category,/*수정7-22*/
           size_ID: this.form.size
         })
         .then((response) => {

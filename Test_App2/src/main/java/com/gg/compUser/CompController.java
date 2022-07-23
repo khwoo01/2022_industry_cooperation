@@ -21,8 +21,8 @@ public class CompController {
 		System.out.println("   comp.pw     : " + dto.CO_PW);
 		System.out.println("   comp.name     : " + dto.COMPANY);
 		System.out.println("   comp.hr     : " + dto.HR);
-		System.out.println("   comp.email     : " + dto.CO_EMAIL);
-		System.out.println("   comp.contact     : " + dto.CO_NUMBER);
+		// System.out.println(" comp.email : " + dto.CO_EMAIL);
+		System.out.println(" comp.contact : " + dto.CO_NUMBER);
 		System.out.println("   comp.category : " + dto.CATEGORY_ID);
 		System.out.println("   comp.size     : " + dto.SIZE_ID);
 

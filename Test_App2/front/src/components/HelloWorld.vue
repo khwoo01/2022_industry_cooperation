@@ -1,20 +1,16 @@
 <template>
   <div class="hello">
-   <h1>test</h1>
+   <h1>Home</h1>
     <!-- navbar(헤더) -->
    <h3 v-for="personal in test2" :key="personal.P_ID">{{personal.NAME}}</h3>
-    <p>
-      For a guide and recipes on how to configure / customize this project,<br>
-      check out the
-      <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
-    </p>
+ 
      <!-- navbar(헤더) -->
   </div>
 
 </template>
 
 <script>
-
+import http from "../http-common";
 export default {
   name: 'HelloWorld',
     data(){
@@ -22,7 +18,10 @@ export default {
       personal:[]
     }
 },
+
 /**/
+
+/*추가*/
 methods:{
     retrieveUsers(){
       http
@@ -39,6 +38,7 @@ methods:{
   mounted(){
     this.retrieveUsers();
   },
+  }/*중괄호 빠져있었다*/
   /**/
 </script>
 

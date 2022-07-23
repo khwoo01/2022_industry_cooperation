@@ -11,23 +11,24 @@ import lombok.ToString;
 @Setter
 @ToString
 public class CompListDTO {
-    int CO_NO;
+	int CO_NO;
 	String COMPANY;
 	String HR;
 	String CO_EMAIL;
-	String CO_CATEGORY;
-	String CO_SIZE;	
-	
-	public CompListDTO() {}
+	String CATEGORY_ID;/* 수정7-22 CO_CATEGORY ->CATEGORY_ID */
+	String SIZE_ID; /* 수정7-22 CO_SIZE -> SIZE_ID */
 
-	public CompListDTO(int CO_NO, String COMPANY, String HR, String CO_EMAIL, String CO_CATEGORY, String CO_SIZE) {
+	public CompListDTO() {
+	}
+
+	public CompListDTO(int CO_NO, String COMPANY, String HR, String CO_EMAIL, String CATEGORY_ID, String SIZE_ID) {
 		super();
 		this.CO_NO = CO_NO;
 		this.COMPANY = COMPANY;
 		this.HR = HR;
 		this.CO_EMAIL = CO_EMAIL;
-		this.CO_CATEGORY = CO_CATEGORY;
-		this.CO_SIZE = CO_SIZE;
+		this.CATEGORY_ID = CATEGORY_ID;/* 수정7-22 CO_CATEGORY ->CATEGORY_ID */
+		this.SIZE_ID = SIZE_ID; /* 수정7-22 CO_SIZE -> SIZE_ID */
 	}
 
 	public CompListDTO(String COMPANY) {

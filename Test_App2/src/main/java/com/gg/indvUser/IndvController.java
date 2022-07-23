@@ -20,7 +20,6 @@ public class IndvController {
 		System.out.println("   indv.name   : " + dto.getNAME());
 		System.out.println("   indv.id     : " + dto.getP_ID());
 		System.out.println("   indv.pw     : " + dto.getP_PW());
-		// System.out.println(" indv.age : " + dto.getAGE());
 		System.out.println("   indv.email  : " + dto.getP_EMAIL());
 		System.out.println("   indv.contact: " + dto.getPHONE());
 		System.out.println("   indv.BOD    : " + dto.getBIRTH_DATE());

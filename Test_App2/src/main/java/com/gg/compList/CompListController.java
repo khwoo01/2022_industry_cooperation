@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin
 @RestController
 public class CompListController {
-    @Autowired
+	@Autowired
 	CompListService service;
-	
+
 	@GetMapping("/comp-list")
 	public List<CompListDTO> SelectAllFromComp() {
 		System.out.println("-----------------------------");
@@ -23,7 +23,7 @@ public class CompListController {
 		System.out.println("company name :" + a.get(0).COMPANY);
 		return service.compList();
 	}
-	
+
 	@GetMapping("/comp-number")
 	public int SelectCompNo(String co_id) {
 		return service.compNo(co_id);
