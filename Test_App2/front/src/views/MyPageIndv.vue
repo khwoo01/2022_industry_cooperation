@@ -83,7 +83,7 @@
             </b-col>
             <b-col md="2">
               <b-card no-body class="text-left" style="padding:5px;">
-                {{acirow.admission_YEAR}}
+                {{acirow.admission_DATE}}
               </b-card>
             </b-col>
             <b-col md="1" align="center">
@@ -91,7 +91,7 @@
             </b-col>
             <b-col md="2">
               <b-card no-body class="text-left" style="padding:5px;">
-                {{acirow.graduation_YEAR}}
+                {{acirow.graduation_DATE}}
               </b-card>
             </b-col>
           </b-row>

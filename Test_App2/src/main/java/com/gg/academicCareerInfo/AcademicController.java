@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class AcademicController {
 	@Autowired
 	AcademicService service;
-	
+
 	@PostMapping("/success-join-aci")
 	public void InsertACInfo(@RequestBody List<AcademicDTO> listDTO) {
 		System.out.println("*Academic Career Controller..*");
@@ -22,13 +22,13 @@ public class AcademicController {
 		System.out.println("   aci.degree : " + listDTO.get(0).DEGREE);
 		System.out.println("   aci.school : " + listDTO.get(0).SCHOOL_NAME);
 		System.out.println("   aci.major  : " + listDTO.get(0).MAJOR);
-		
-		for(int i=0 ; i < listDTO.size() ; i++)
+
+		for (int i = 0; i < listDTO.size(); i++)
 			service.insertAcademic(listDTO.get(i));
 	}
-	
+
 	@GetMapping("/mypage-indv-aci")
-	public List<AcademicDTO> GetACInfoList(String userID){
+	public List<AcademicDTO> GetACInfoList(String userID) {
 		System.out.println("*Academic Career Controller..*");
 		return service.academicList(userID);
 	}

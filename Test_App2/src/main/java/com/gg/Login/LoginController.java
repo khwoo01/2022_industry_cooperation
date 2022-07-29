@@ -34,6 +34,7 @@ public class LoginController {
 		} else { // �α��� ������ ���
 			System.out.println(" login success! getting session...");
 			HttpSession session = request.getSession(); // ������ ������ �ִ� ���� ��ȯ, ������ �ű� ������ �����Ͽ� ��ȯ
+			session = request.getSession();
 			session.setAttribute("loginUser", loginUser.getID()); // ���ǿ� �α��� ȸ�� ���� ����
 			session.setAttribute("usercode", loginUser.getUser_code());
 			System.out.println(" complete login!!:" + session.getAttribute("loginUser"));

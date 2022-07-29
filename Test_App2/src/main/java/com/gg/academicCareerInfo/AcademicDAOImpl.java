@@ -9,12 +9,12 @@ import org.springframework.stereotype.Repository;
 public class AcademicDAOImpl implements AcademicDAO {
 
 	@Override
-	public void insertAcademic(AcademicDTO dto, SqlSessionTemplate session) {
-		session.insert("UserMapper.insertAcademic", dto);
+	public void insertAcademic(AcademicDTO listDTO, SqlSessionTemplate session) {
+		session.insert("UserMapper.insertAcademic", listDTO);
 	}
 
 	@Override
-	public List<AcademicDTO> academicList(SqlSessionTemplate session, String userID){
+	public List<AcademicDTO> academicList(SqlSessionTemplate session, String userID) {
 		return session.selectList("UserMapper.getIndvACI", userID);
 	}
 }

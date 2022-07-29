@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import http from "../http-common";
+import http from "../http-common";// eslint-disable-line no-unused-vars
 export default {
   name: 'HelloWorld',
     data(){
@@ -35,11 +35,11 @@ methods:{
         })
     }
   },
+  
   mounted(){
     this.retrieveUsers();
-  },
-  }/*중괄호 빠져있었다*/
-  /**/
+  }
+  }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

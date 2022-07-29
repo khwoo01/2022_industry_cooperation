@@ -54,7 +54,7 @@ export default {
         .then((response) => {
           if (response.data) {
             console.log(response.data);
-            alert("로그인 dltkd");
+            alert("로그인 성공");
             this.$router.push({ name: "Home" });
             this.$router.go(0);
           } else {

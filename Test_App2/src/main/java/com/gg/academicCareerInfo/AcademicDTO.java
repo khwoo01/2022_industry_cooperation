@@ -16,19 +16,21 @@ public class AcademicDTO {
 	String DEGREE;
 	String SCHOOL_NAME;
 	String MAJOR;
-	int ADMISSION_YEAR;
-	int GRADUATION_YEAR;
-	
-	public AcademicDTO() {}
+	int ADMISSION_DATE;
+	int GRADUATION_DATE;
 
-	public AcademicDTO(int ID, String P_ID, String DEGREE, String SCHOOL_NAME, String MAJOR, int ADMISSION_YEAR, int GRADUATION_YEAR) {
+	public AcademicDTO() {
+	}
+
+	public AcademicDTO(int ID, String P_ID, String DEGREE, String SCHOOL_NAME, String MAJOR, int ADMISSION_DATE,
+			int GRADUATION_DATE) {
 		super();
 		this.ID = ID;
 		this.P_ID = P_ID;
 		this.DEGREE = DEGREE;
 		this.SCHOOL_NAME = SCHOOL_NAME;
 		this.MAJOR = MAJOR;
-		this.ADMISSION_YEAR = ADMISSION_YEAR;
-		this.GRADUATION_YEAR = GRADUATION_YEAR;
+		this.ADMISSION_DATE = ADMISSION_DATE;
+		this.GRADUATION_DATE = GRADUATION_DATE;
 	}
 }

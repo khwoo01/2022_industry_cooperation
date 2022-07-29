@@ -226,10 +226,12 @@ export default {
       http
         .post("/success-join-aci", academicList)
         .then((response) => {
+          alert("학력 추가 가져오기 성공..");/*break point*/
           console.log(response.data);
         })
         .catch((e) => {
           console.log(e);
+          alert("학력 추가 가져오기 실패..");/*break point*/
         });
     },
     joinCareerInfo() {
@@ -270,10 +272,11 @@ export default {
           degree: this.academicRows[i].degree,
           school_NAME: this.academicRows[i].school,
           major: this.academicRows[i].dept,
-          admission_YEAR: this.academicRows[i].ay,
-          graduation_YEAR: this.academicRows[i].gy
+          admission_DATE: this.academicRows[i].ay,
+          graduation_DATE: this.academicRows[i].gy
         };
       }
+      alert("학력 리스트 가져오기 성공..");/*break point*/
     },
     matchCareer() {
       for (var i = 0; i < this.careerRows.length; i++) {
