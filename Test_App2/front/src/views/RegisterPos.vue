@@ -126,7 +126,7 @@ export default {
         .then((response) => {
           console.log(response.data);
           this.co_no = response.data;
-          if (this.co_no > 0){
+          if (this.co_no >= 0){/*8-03 임시수정*/
             this.registerPosition();
           } 
           else {
@@ -145,6 +145,7 @@ export default {
         .post("/check-session")
         .then((response) => {
           console.log(response.data);
+          console.log('회사 id 가져오기');
           if (response.data != null && response.data != "") {
             this.co_id = response.data;
             this.getCO_NO();
@@ -166,6 +167,7 @@ export default {
           regi_DT: this.form.deadline,
           job: this.form.taskInfo,
           co_NO: this.co_no,
+          co_ID:this.co_id 
         })
         .then((response) => {
           console.log(response.data);

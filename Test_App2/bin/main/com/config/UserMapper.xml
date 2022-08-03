@@ -33,7 +33,7 @@
 	<select id="postList" resultType="JobPost">
 		SELECT POST_NO, COMPANY, POSITION, QUALIFY, EMPLOY_TYPE, REGI_DT 
 		FROM NOTICE_post, COMPANY
-		WHERE NOTICE_post.CO_NO = COMPANY.CO_NO; 
+		WHERE NOTICE_post.CO_ID = COMPANY.CO_ID; 
 	</select>
 	
 	<!-- 포지션 DB 등록 -->
@@ -42,16 +42,16 @@
 		VALUES( #{POSITION}, #{QUALIFY}, #{EMPLOY_TYPE}, #{JOB},
 		 #{REGI_DT}, now(), now(), #{CO_NO} )	
 		-->
-		INSERT INTO NOTICE_POST(POSITION, QUALIFY, EMPLOY_TYPE,	JOB, REGI_DT, POST_NO, CO_ID)
-		VALUES( #{POSITION}, #{QUALIFY}, #{EMPLOY_TYPE}, #{JOB},
-		 #{REGI_DT},  #{CO_ID} )
+		INSERT INTO NOTICE_POST(POST_NO, QUALIFY, EMPLOY_TYPE,	JOB, REGI_DT, POSITION, CO_ID,CO_NO,created_at,updated_at)
+		VALUES( #{POST_NO}, #{QUALIFY}, #{EMPLOY_TYPE}, #{JOB},
+		 #{REGI_DT}, #{POSITION}, #{CO_ID},#{CO_NO},now(),now() )
 	</insert>
 
 	<!-- 기업회원 가입 -->
 	<insert id="insertComp" parameterType="CompUser">
-		INSERT INTO COMPANY(CO_ID, CO_PW, COMPANY, HR, CO_EMAIL, CO_NUMBER, CATEGORY_ID, SIZE_ID)
+		INSERT INTO COMPANY(CO_ID, CO_PW, COMPANY, HR, CO_EMAIL, CO_NUMBER, CATEGORY_ID, SIZE_ID,CO_NO)
 		VALUES( #{CO_ID}, #{CO_PW}, #{COMPANY}, #{HR},
-		 #{CO_EMAIL}, #{CO_NUMBER}, #{CATEGORY_ID}, #{SIZE_ID} )
+		 #{CO_EMAIL}, #{CO_NUMBER}, #{CATEGORY_ID}, #{SIZE_ID},#{CO_NO} )
 	</insert>
 
 	<!-- 개인회원 가입 -->

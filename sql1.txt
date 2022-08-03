@@ -16,7 +16,8 @@ ALTER TABLE CAREER
 
 -- 진행상황
 ALTER TABLE PROGRESS
-	DROP FOREIGN KEY FK_COMPANY_TO_PROGRESS; --  기업 -> 진행상황
+	DROP FOREIGN KEY FK_COMPANY_TO_PROGRESS; --  기업 -> 
+
 
 -- 진행상황
 ALTER TABLE PROGRESS
@@ -120,7 +121,8 @@ CREATE TABLE NOTICE_post (
 	EMPLOY_TYPE NVARCHAR(6)    NOT NULL, -- 고용형태
 	REGI_DT    DATETIME    NOT NULL,  -- 진행상태
 	created_at	   TIMESTAMP NOT NULL, -- 생성일자	
-	updated_at  TIMESTAMP NOT NULL -- 수정일자
+	updated_at  TIMESTAMP NOT NULL, -- 수정일자
+	CO_NO BIGINT(20) NOT NULL
 );
 
 -- 공고게시판
@@ -138,7 +140,7 @@ ALTER TABLE NOTICE_post
 
 -- 자격증
 CREATE TABLE LICENSE (
-	P_ID    VARCHAR(20) NOT NULL, -- 개인아이디
+	P_ID    VARCHAR(20) NOT NULL, -- 개인아이디desc 
 	LICENSE VARCHAR(20) NOT NULL  -- 자격증명
 );
 
@@ -269,15 +271,6 @@ ALTER TABLE PROGRESS
 
 
 
-
-
--------------------
-	<!-- 기업회원 가입 -->
-	<insert id="insertComp" parameterType="CompUser">
-		INSERT INTO COMPANY(CO_ID, CO_PW, COMPANY, HR, CO_EMAIL, CO_NUMBER, CATEGORY_ID, SIZE_ID)
-		VALUES( #{CO_ID}, #{CO_PW}, #{COMPANY}, #{HR},
-		 #{CO_EMAIL}, #{CO_NUMBER}, #{CATEGORY_ID}, #{SIZE_ID} )
-	</insert>
 
 --------------------------
 -- 개인
