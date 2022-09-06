@@ -9,15 +9,15 @@ import org.springframework.stereotype.Repository;
 public class LoginDAOImpl implements LoginDAO{
 	@Override
 	public List<LoginDTO> userList(SqlSessionTemplate session, int user_code) {
-		// login시도한 계정의 user_code확인
-		if(user_code == 0) {	// 개인회원인 경우
-			return session.selectList("UserMapper.loginIndv");	// 개인 table select
+
+		if(user_code == 0) {
+			return session.selectList("UserMapper.loginIndv");
 		}
-		else if(user_code == 1){	// 기업회원인 경우
-			return session.selectList("UserMapper.loginComp");	// 기업 table select
+		else if(user_code == 1){
+			return session.selectList("UserMapper.loginComp");
 		}
 		else {
-			return null;	// 그 외의 경우는 오류이므로 null 반환
+			return null;
 		}
 	}
 }

@@ -56,17 +56,17 @@ export default {
             console.log(response.data);
             alert("로그인 성공");
             this.$router.push({ name: "Home" });
-            this.$router.go(0);
+          //  this.$router.go(0);
           } else {
             console.log(response.data);
             alert("로그인 실패..ID/PW를 다시 확인해주세요.");
-            this.$router.go(0);
+           // this.$router.go(0);
           }
         })
         .catch((e) => {
           console.log(e);
           alert("로그인 실패..오류 발생..");
-          this.$router.go(0);
+          //this.$router.go(0);
         });
     },
   },

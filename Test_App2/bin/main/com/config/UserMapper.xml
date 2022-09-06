@@ -47,6 +47,13 @@
 		 #{REGI_DT}, #{POSITION}, #{CO_ID},#{CO_NO},now(),now() )
 	</insert>
 
+	<!-- 게시판 보기 -->
+	<select id="getDetail" parameterType="int" resultType="jobDetail">
+		SELECT *
+		FROM notice_post
+		WHERE #{post_NO}=notice_post.POST_NO; 
+	</select>
+
 	<!-- 기업회원 가입 -->
 	<insert id="insertComp" parameterType="CompUser">
 		INSERT INTO COMPANY(CO_ID, CO_PW, COMPANY, HR, CO_EMAIL, CO_NUMBER, CATEGORY_ID, SIZE_ID,CO_NO)

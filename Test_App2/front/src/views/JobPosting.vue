@@ -1,4 +1,3 @@
-
 <template>
   <div class="jobposting">
     <!-- 기존 게시판 코드 -->
@@ -30,7 +29,7 @@
           </b-row>
          <!-- 고객사 목록 table -->
           <b-row>
-             <b-table hover :items="contents" :filter="filter" :fields="fields"></b-table>
+             <b-table hover :items="contents" :filter="filter" :fields="fields" @row-clicked="JobDetail"></b-table>
           </b-row>
        </b-container>
     </div>
@@ -85,7 +84,43 @@ export default {
           console.log(e);
         })
     },
-  },
+    JobDetail(row)
+    {
+    
+      http
+      .post("/checkdetail",
+      {
+        post_NO: row.post_NO,
+        company: row.company,
+        position: row.position,
+        qualify: row.qualify,
+        employ_TYPE: row.employ_TYPE,
+        regi_DT:row.regi_DT
+      })
+      .then((response) => 
+      {
+        console.log(response);
+        if (response.data)
+        {
+          console.log(response.data);
+          alert("페이지 이동");
+          console.log(row.post_NO);
+          console.log("구분용");
+          this.$router.push({name: "JobDetail",params: {post_NO:row.post_NO}});
+        } else{
+          console.log(response.data);
+          alert("페이지 이동 실패");
+        }
+      })
+      .catch((e) => {
+        console.log(e);
+        alert("페이지 이동x");
+      })
+    alert(row.position)
+    }
+  }
+  
+  ,
   mounted(){
     this.retrieveContents();
     this.checkUserCode();

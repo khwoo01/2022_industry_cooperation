@@ -12,6 +12,7 @@ import JobPosting from '../views/JobPosting.vue'
 import RegisterPos from '../views/RegisterPos.vue'
 import MyPageIndv from '../views/MyPageIndv.vue'
 import MyPageComp from '../views/MyPageComp.vue'
+import JobDetail from '../views/JobDetail'
 
 Vue.use(VueRouter)
 
@@ -76,6 +77,12 @@ const routes = [
     name: 'MyPageComp',
     component: MyPageComp
   },
+  {
+    path:'/job-detail',
+    name:'JobDetail',
+    component: JobDetail,
+    props: true //9-01 수정
+  }
 
 ]
 

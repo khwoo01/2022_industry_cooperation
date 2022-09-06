@@ -21,9 +21,15 @@
            </b-col>
           </b-row>
          <!-- 고객사 목록 table -->
-          <b-row>
-             <b-table hover :items="users" :filter="filter" :fields="fields"></b-table>
-             <!-- <b-table-simple>
+          <b-row>  
+              
+           <b-table hover :items="users" :filter="filter" :fields="fields"></b-table>
+            <!-- <b-table v-for="list in users" v-bind:key="list.co_NO">
+             {{list.co_NO }}
+             {{list.company }}
+             </b-table>
+             -->
+              <!-- <b-table-simple>
               <colgroup>
                 <col span="1" style="width=5%">
                 <col span="1" style="width=45%">
@@ -83,6 +89,7 @@ export default {
         .then(response=>{
           this.users = response.data;
           console.log(response.data);
+          console.log(response.data[2]);
         })
         .catch(e=>{
           console.log(e);

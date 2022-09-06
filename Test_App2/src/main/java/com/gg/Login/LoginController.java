@@ -15,7 +15,7 @@ public class LoginController {
 	@Autowired
 	LoginService service;
 
-	// �α���
+	// 로그인
 	@PostMapping("/login")
 	public boolean Login(@RequestBody LoginDTO dto,
 			HttpServletRequest request) {
@@ -24,35 +24,33 @@ public class LoginController {
 		System.out.println(" input ID: " + dto.getID());
 		System.out.println(" input PW: " + dto.getPW());
 		System.out.println(" input uc: " + dto.getUser_code());
-		System.out.println(" @@@@@@@");
 
 		LoginDTO loginUser = service.checkLogin(dto);
-		System.out.println(" @@@@@@@" + loginUser);
-		if (loginUser == null) { // �α��� ������ ���
+
+		if (loginUser == null) { // 로그인 실패한 경우
 			System.out.println(" login failed...");
 			return false;
-		} else { // �α��� ������ ���
+		} else { // 로그인 성공한 경우
 			System.out.println(" login success! getting session...");
-			HttpSession session = request.getSession(); // ������ ������ �ִ� ���� ��ȯ, ������ �ű� ������ �����Ͽ� ��ȯ
-			session = request.getSession();
-			session.setAttribute("loginUser", loginUser.getID()); // ���ǿ� �α��� ȸ�� ���� ����
+			HttpSession session = request.getSession(); // 세션이 있으면 있는 세션 반환, 없으면 신규 세션을 생성하여 반환
+			session.setAttribute("loginUser", loginUser.getID()); // 세션에 로그인 회원 정보 보관
 			session.setAttribute("usercode", loginUser.getUser_code());
 			System.out.println(" complete login!!:" + session.getAttribute("loginUser"));
 			return true;
 		}
 	}
 
-	// �α׾ƿ�
+	// 로그아웃
 	@PostMapping("/logout")
 	public void logout(HttpServletRequest request) {
 
 		HttpSession session = request.getSession(false);
 		if (session != null) {
-			session.invalidate(); // ���� ����
+			session.invalidate(); // 세션 날림
 		}
 	}
 
-	// �α��� ���� �˻�
+	// 로그인 세션 검사
 	@PostMapping("/check-session")
 	public String checkSession(HttpServletRequest request) {
 
@@ -63,7 +61,7 @@ public class LoginController {
 		return null;
 	}
 
-	// �α��� �����ڵ� �˻�
+	// 로그인 유저코드 검사
 	@PostMapping("/check-usercode")
 	public boolean isCompUser(HttpServletRequest request) {
 

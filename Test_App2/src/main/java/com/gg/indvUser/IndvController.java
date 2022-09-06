@@ -13,7 +13,6 @@ public class IndvController {
 	@Autowired
 	IndvService service;
 
-	// ���� ȸ������
 	@PostMapping("/success-join-indv")
 	public void InsertIndvUser(@RequestBody IndvDTO dto) {
 		System.out.println("***Indv Controller..***");
@@ -27,7 +26,6 @@ public class IndvController {
 		service.insertIndv(dto);
 	}
 
-	// ���� ȸ�� ���������� ��ȸ
 	@GetMapping("/mypage-indv")
 	public IndvDTO getIndvUser(String userID) {
 		IndvDTO dto = service.getIndv(userID);

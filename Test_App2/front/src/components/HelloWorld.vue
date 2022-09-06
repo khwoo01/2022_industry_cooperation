@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-   <h1>Home</h1>
+   <h1>Home!!!!!</h1>
     <!-- navbar(헤더) -->
    <h3 v-for="personal in test2" :key="personal.P_ID">{{personal.NAME}}</h3>
  

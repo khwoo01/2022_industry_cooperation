@@ -13,7 +13,7 @@ import lombok.ToString;
 public class LoginDTO {
 	String ID;
 	String PW;
-	int user_code;	// 0이면 개인회원, 1이면 기업회원
+	int user_code;
 	
 	public LoginDTO() {}
 

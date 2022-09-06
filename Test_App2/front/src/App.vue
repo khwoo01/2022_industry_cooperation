@@ -28,7 +28,7 @@
       </b-navbar>
     </div>
     <div>
-      <router-view/>
+      <router-view/><!--nav 바 밑에 router view 부분이 바뀜 -->
     </div>
   </div>
 
