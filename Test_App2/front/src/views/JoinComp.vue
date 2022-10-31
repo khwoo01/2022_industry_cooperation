@@ -1,7 +1,7 @@
 <template>
   <div class="join-comp">
     <h3 align="center">기업 회원가입</h3>
-    <b-form @submit="joinCompUser">
+    <b-form>
       <!-- 기업 이름 -->
       <b-form-group label="Name" label-for="input-name">
         <b-form-input
@@ -85,7 +85,7 @@
         ></b-form-select>
       </b-form-group>
 
-      <b-button type="submit" variant="primary">완료</b-button>
+      <b-button type="button" variant="primary" @click="joinCompUser">완료</b-button>
     </b-form>
   </div>
 </template>

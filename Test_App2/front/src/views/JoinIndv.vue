@@ -1,7 +1,7 @@
 <template>
   <div class="join-indv">
     <h3 align="center">개인 회원가입</h3>
-    <b-form @submit="joinIndvUser">
+    <b-form>
       <!-- 이름 -->
       <b-form-group label="Name" label-for="input-name">
         <b-form-input
@@ -157,7 +157,7 @@
         </div>
       </b-form-group>
 
-      <b-button type="submit" variant="primary">완료</b-button>
+      <b-button type="button" variant="primary" @clickt="joinIndvUser">완료</b-button>
     </b-form>
   </div>
 </template>

@@ -8,10 +8,10 @@ import org.springframework.stereotype.Service;
 public class PositionDBServiceImpl implements PositionDBService {
 	@Autowired
 	PositionDBDAO dao;
-	
+
 	@Autowired
 	SqlSessionTemplate session;
-	
+
 	@Override
 	public void insertPos(PositionDBDTO dto) {
 		System.out.println("===========================");

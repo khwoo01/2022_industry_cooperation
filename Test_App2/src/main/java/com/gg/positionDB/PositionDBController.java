@@ -20,10 +20,11 @@ public class PositionDBController {
 		System.out.println("   pos.position    : " + dto.getPOSITION());
 		System.out.println("   pos.qualify    : " + dto.getQUALIFY());
 		System.out.println("   pos.job    : " + dto.getJOB());
-		System.out.println("   pos.EMPLOY_TYPE    : " + dto.getEMPLOY_TYPE());
+		System.out.println("   pos.EMPLOY_TYPE     : " + dto.getEMPLOY_TYPE());
 		System.out.println("   pos.REGI_DT    : " + dto.getREGI_DT());
 		System.out.println("   pos.CO_NO    : " + dto.getCO_NO());
 
 		service.insertPos(dto);
 	}
+
 }

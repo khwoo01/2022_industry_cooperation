@@ -12,6 +12,7 @@ import lombok.ToString;
 @ToString
 public class CompListDTO {
 	int CO_NO;
+	String CO_ID;
 	String COMPANY;
 	String HR;
 	String CO_EMAIL;
@@ -21,8 +22,10 @@ public class CompListDTO {
 	public CompListDTO() {
 	}
 
-	public CompListDTO(int CO_NO, String COMPANY, String HR, String CO_EMAIL, String CATEGORY_ID, String SIZE_ID) {
+	public CompListDTO(int CO_NO, String CO_ID, String COMPANY, String HR, String CO_EMAIL, String CATEGORY_ID,
+			String SIZE_ID) {
 		super();
+		this.CO_ID = CO_ID;
 		this.CO_NO = CO_NO;
 		this.COMPANY = COMPANY;
 		this.HR = HR;

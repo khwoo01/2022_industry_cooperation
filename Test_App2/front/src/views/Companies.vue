@@ -23,7 +23,7 @@
          <!-- 고객사 목록 table -->
           <b-row>  
               
-           <b-table hover :items="users" :filter="filter" :fields="fields"></b-table>
+           <b-table hover :items="users" :filter="filter" :fields="fields" @row-clicked="CompanyDetail"></b-table>
             <!-- <b-table v-for="list in users" v-bind:key="list.co_NO">
              {{list.co_NO }}
              {{list.company }}
@@ -73,6 +73,7 @@ export default {
       users:[],
       fields:[
         {key:'co_NO', label:'No.'},
+        {key:'co_ID', label:'ID'},
         {key:'company', label:'기업명'},
         {key:'category_ID', label:'분야'},
         {key:'size_ID', label:'기업규모'},/* 수정7-22 CO_SIZE -> SIZE_ID */
@@ -95,7 +96,39 @@ export default {
           console.log(e);
         })
     },
-  },
+  CompanyDetail(row)
+ {
+      http
+      .post("/checkcompanydetail",
+      {
+        co_ID: row.co_ID,
+        co_PW:row.co_PW,
+        company:row.company,
+        co_EMAIL:row.co_EMAIL,
+        hr:row.hr,
+        size_ID:row.size_ID,
+        category_ID:row.category_ID,
+      
+     })
+      .then((response) => 
+      {
+        console.log(response);
+        if (response.data)
+        {
+          console.log(response.data);
+          this.$router.push({name: "CompanyDetail",query: {co_ID:row.co_ID}});
+        } else{
+          console.log(response.data);
+          alert("페이지 이동 실패");
+        }
+      })
+      .catch((e) => {
+        console.log(e);
+        alert("페이지 이동x");
+      })
+    }
+  }
+  ,
   mounted(){
     this.retrieveUsers();
   }

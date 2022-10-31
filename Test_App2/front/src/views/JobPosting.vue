@@ -103,10 +103,8 @@ export default {
         if (response.data)
         {
           console.log(response.data);
-          alert("페이지 이동");
           console.log(row.post_NO);
-          console.log("구분용");
-          this.$router.push({name: "JobDetail",params: {post_NO:row.post_NO}});
+          this.$router.push({name: "JobDetail",query: {post_NO:row.post_NO}});
         } else{
           console.log(response.data);
           alert("페이지 이동 실패");
@@ -116,7 +114,6 @@ export default {
         console.log(e);
         alert("페이지 이동x");
       })
-    alert(row.position)
     }
   }
   

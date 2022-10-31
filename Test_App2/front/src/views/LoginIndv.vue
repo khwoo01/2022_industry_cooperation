@@ -1,5 +1,6 @@
 <template>
   <div class="login-indv">
+
     <b-form >
       <b-card title="일반회원 로그인">
         <!-- ID -->

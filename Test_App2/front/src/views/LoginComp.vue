@@ -1,6 +1,6 @@
 <template>
   <div class="login-comp">
-    <b-form @submit="loginComp">
+    <b-form>
       <b-card title="기업회원 로그인">
         <!-- ID -->
         <b-form-group label="ID" label-for="input-id">
@@ -21,10 +21,11 @@
             v-model="form.pw"
             placeholder="Enter Password"
             required
+            @keyup.enter="loginComp"
           ></b-form-input>
         </b-form-group>
 
-        <b-button type="submit" variant="primary"> 로그인 </b-button>
+        <b-button type="button" variant="primary"  @click="loginComp"> 로그인 </b-button>
       </b-card>
     </b-form>
   </div>

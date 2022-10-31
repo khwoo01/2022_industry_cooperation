@@ -8,13 +8,13 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Service
-public class CompListServiceImpl implements CompListService{
-    @Autowired
+public class CompListServiceImpl implements CompListService {
+	@Autowired
 	CompListDAO dao;
-	
+
 	@Autowired
 	SqlSessionTemplate session;
-	
+
 	@Override
 	public List<CompListDTO> compList() {
 		System.out.println("===========================");
@@ -22,13 +22,13 @@ public class CompListServiceImpl implements CompListService{
 		System.out.println("===========================");
 		return dao.compList(session);
 	}
-	
+
 	@Override
 	public int compNo(@RequestParam("co_id") String co_id) {
 		System.out.println("===========================");
 		System.out.println("  Comp No ServiceImpl..");
 		System.out.println("===========================");
-		if(co_id != null)
+		if (co_id != null)
 			return dao.compNo(session, co_id).getCO_NO();
 		else
 			return -1;

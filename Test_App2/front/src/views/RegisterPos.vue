@@ -1,6 +1,6 @@
 <template>
   <div class="register-pos">
-    <b-form @submit="register">
+    <b-form>
       <b-container fluid>
         <!-- 포지션 DB 등록 헤더 -->
         <b-row style="padding:30px;">
@@ -84,7 +84,7 @@
         </b-row>
       </b-container>
       <!-- 입력 완료(등록) 버튼 -->
-      <b-button type="submit" variant="primary"> 완료 </b-button>
+      <b-button type="button" variant="primary" @click="register"> 완료 </b-button>
     </b-form>
   </div>
 </template>
@@ -125,8 +125,8 @@ export default {
         .get("/comp-number", { params: { co_id: this.co_id } })
         .then((response) => {
           console.log(response.data);
-          this.co_no = response.data;
-          if (this.co_no >= 0){/*8-03 임시수정*/
+          this.co_email = response.data;
+          if (this.co_email != null){/*8-03 임시수정*/
             this.registerPosition();
           } 
           else {
@@ -136,7 +136,7 @@ export default {
         })
         .catch((e) => {
           console.log(e);
-          this.co_no = -1;
+          this.co_email = -1;
         });
     },
     getCO_ID() {
@@ -166,7 +166,7 @@ export default {
           employ_TYPE: this.form.employType,
           regi_DT: this.form.deadline,
           job: this.form.taskInfo,
-          co_NO: this.co_no,
+          co_EMAIL: this.co_no,
           co_ID:this.co_id 
         })
         .then((response) => {

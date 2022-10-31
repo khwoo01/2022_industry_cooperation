@@ -20,6 +20,7 @@ public class PositionDBDTO {
 	String CO_ID;/* 8-03 슈ㅜ정 */
 	Date REGI_DT;
 	int CO_NO;
+	String CO_EMAIL;
 
 	public PositionDBDTO() {
 	}

@@ -29,7 +29,6 @@ public class CompController {
 		service.insertComp(dto);
 	}
 
-
 	@GetMapping("/mypage-comp")
 	public CompDTO getCompUser(String userID) {
 		CompDTO dto = service.getComp(userID);

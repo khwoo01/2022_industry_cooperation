@@ -84,7 +84,7 @@ export default{
       http
         .post("/logout")
         .then(response=>{
-          alert("로그아웃 되었습니다---------.");
+          alert("로그아웃 되었습니다.");
           console.log(response.data);
           this.$router.push({ name: "Home" });
           this.$router.go(0);
@@ -96,7 +96,7 @@ export default{
         })
     }
   },
-  mounted(){
+  updated(){
     this.checkSession();
   }
 }

@@ -12,7 +12,9 @@ import JobPosting from '../views/JobPosting.vue'
 import RegisterPos from '../views/RegisterPos.vue'
 import MyPageIndv from '../views/MyPageIndv.vue'
 import MyPageComp from '../views/MyPageComp.vue'
-import JobDetail from '../views/JobDetail'
+import JobDetail from '../views/JobDetail.vue'
+import ModifyPost from '../views/ModifyPost.vue'
+import CompanyDetail from '../views/CompanyDetail.vue'
 
 Vue.use(VueRouter)
 
@@ -81,7 +83,31 @@ const routes = [
     path:'/job-detail',
     name:'JobDetail',
     component: JobDetail,
-    props: true //9-01 수정
+  },
+  {
+    path:'/job-detail/:params',
+    name:'JobDetail',
+    component: JobDetail,
+  }, 
+  {
+    path:'/company-detail/',
+    name:'CompanyDetail',
+    component: CompanyDetail,
+  },  
+  {
+    path:'/company-detail/:params',
+    name:'CompanyDetail',
+    component: CompanyDetail,
+  },  
+  {
+    path:'/modify-post/',
+    name:'ModifyPost',
+    component: ModifyPost,
+  },
+  {
+    path:'/modify-post/:params',
+    name:'ModifyPost',
+    component: ModifyPost,
   }
 
 ]

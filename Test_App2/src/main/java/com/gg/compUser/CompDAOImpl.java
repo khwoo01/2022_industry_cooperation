@@ -9,7 +9,7 @@ public class CompDAOImpl implements CompDAO {
 	public void insertComp(CompDTO dto, SqlSessionTemplate session) {
 		session.insert("UserMapper.insertComp", dto);
 	}
-	
+
 	@Override
 	public CompDTO getComp(SqlSessionTemplate session, String userID) {
 		return session.selectOne("UserMapper.getComp", userID);
