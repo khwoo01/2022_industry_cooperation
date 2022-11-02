@@ -157,7 +157,7 @@
         </div>
       </b-form-group>
 
-      <b-button type="button" variant="primary" @clickt="joinIndvUser">완료</b-button>
+      <b-button type="button" variant="primary" @click="joinIndvUser">완료</b-button>
     </b-form>
   </div>
 </template>
