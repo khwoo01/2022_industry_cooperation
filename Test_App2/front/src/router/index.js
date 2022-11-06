@@ -15,6 +15,8 @@ import MyPageComp from '../views/MyPageComp.vue'
 import JobDetail from '../views/JobDetail.vue'
 import ModifyPost from '../views/ModifyPost.vue'
 import CompanyDetail from '../views/CompanyDetail.vue'
+import Manager from '../views/Manager.vue'
+import ManagerProgress from '../views/ManagerProgress.vue'
 
 Vue.use(VueRouter)
 
@@ -108,6 +110,15 @@ const routes = [
     path:'/modify-post/:params',
     name:'ModifyPost',
     component: ModifyPost,
+  }, {
+    path: '/Manager-Progress',
+    name: 'ManagerProgress',
+    component: ManagerProgress
+  },
+  {
+    path: '/Manager-log',
+    name: 'Manager',
+    component: Manager
   }
 
 ]

@@ -14,6 +14,12 @@
 		SELECT CO_ID as ID, CO_PW as PW, 1 as user_code
 		FROM COMPANY
 	</select>
+	
+	<!-- 관리자 로그인(계정정보 조회) -->
+	<select id="Manager" resultType="user">
+		SELECT M_ID as ID, M_PW as PW, 2 as user_code
+		FROM Manager
+	</select>
 
 	<!-- 고객사 게시판 조회 -->
 	<select id="compList" resultType="CompanyList"> 

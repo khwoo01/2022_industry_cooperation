@@ -185,8 +185,12 @@ export default {
           {
             console.log(response.data);
             this.job = response.data; 
-            jobob=this.job;
-            Object.freeze(jobob)
+            this.form.posName=this.job.position;
+            this.form.qualify=this.job.qualify;
+            this.form.employType=this.job.employ_TYPE;
+            this.form.deadline=this.job.regi_DT;
+            this.form.taskInfo=this.job.job;
+
             //email 가져오기
             http
               .get("/mypage-comp", { params: { userID: this.job.co_ID} })

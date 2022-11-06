@@ -14,6 +14,12 @@
             </b-col>
         </b-row>
 
+        <b-row align-h="center" style="padding:10px;">
+            <b-col>
+                <b-button size="lg" variant="primary" href="/#/Manager-log">관리자 로그인</b-button>  
+            </b-col>
+        </b-row>
+
         <b-row>
           <b-button variant="link" href="/#/join">회원가입</b-button>
         </b-row>

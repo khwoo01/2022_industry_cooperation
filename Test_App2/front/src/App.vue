@@ -4,7 +4,7 @@
     <div id="nav">
       <b-navbar toggleable="md" type="dark" variant="primary">
         <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
-        <b-navbar-brand href="/">Matching Monster</b-navbar-brand>
+        <b-navbar-brand href="/#/">Matching Monster</b-navbar-brand>
         <b-collapse id="nav-collapse" is-nav>
           <b-navbar-nav>
             <b-nav-item href="/#/companies">Companies</b-nav-item>
@@ -22,7 +22,10 @@
               <b-nav-item href="/#/login" style="float: left;">Login</b-nav-item>
               <b-nav-item href="/#/join" style="float: right;">Join</b-nav-item>
             </div>
-            
+            <div v-if="this.usercode == 'zxc'">
+              <b-nav-item href="/#/Manager-Progress" style="float: right;">진행상황</b-nav-item>
+            </div>
+        
           </b-navbar-nav>
         </b-collapse>
       </b-navbar>
@@ -43,6 +46,7 @@ export default{
     return{
       isLogin: false,
       loginUser:'',
+      user_code:'asd'
     }
   },
   
@@ -58,6 +62,22 @@ export default{
           }
           else{
             this.isLogin = false;
+          }
+        })
+        .catch(e=>{
+          console.log(e);
+        })
+    },
+    checkUserCode(){
+      http
+        .post("/check-usercode")
+        .then(response=>{
+          console.log(response.data);
+          if(response.data){
+            this.user_code = 'zxc'
+          }
+          else{
+            this.user_code = 'asd';
           }
         })
         .catch(e=>{
@@ -98,6 +118,7 @@ export default{
   },
   updated(){
     this.checkSession();
+    this.checkUserCode();
   }
 }
 </script>
@@ -123,5 +144,11 @@ export default{
 
 #nav a.router-link-exact-active {
   color: #42b983;
-} */
+}
+<b-nav-item-dropdown right>
+                <template #button-content>
+                  진행상황
+                </template>
+              </b-nav-item-dropdown>
+*/
 </style>
