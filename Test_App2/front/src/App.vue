@@ -22,7 +22,7 @@
               <b-nav-item href="/#/login" style="float: left;">Login</b-nav-item>
               <b-nav-item href="/#/join" style="float: right;">Join</b-nav-item>
             </div>
-            <div v-if="this.usercode = 'zxc'">
+            <div v-if="this.usercode == 'zxc'">
               <b-nav-item href="/#/Manager-Progress" style="float: right;">진행상황</b-nav-item>
             </div>
         
@@ -116,10 +116,14 @@ export default{
         })
     }
   },
+  mounted(){
+    this.checkSession();
+  },
   updated(){
     this.checkSession();
     this.checkUserCode();
-  }
+  },
+  
 }
 </script>
 
