@@ -19,9 +19,13 @@ Vue.js을 통한 외부 오픈 플랫폼과 인재 정보 및 후보사 정보 �
 ## 개발 진행 내용
 1. 회원 가입 된 기업들 상세보기와 채용 공고 조회 및 수정 삭제
 ![image](https://user-images.githubusercontent.com/83395200/220016694-8f1ac25a-ee65-4744-a9d7-ee0652178fb9.png)
+![image](https://user-images.githubusercontent.com/83395200/220016752-168ee025-d2ed-47b8-8b08-965109c25511.png)
+![image](https://user-images.githubusercontent.com/83395200/220016771-3ce606b0-4b35-4297-b4ec-de4e96cffde3.png)
 
+2. 고객사 목록
+![image](https://user-images.githubusercontent.com/83395200/220016796-dfcaeda1-41ed-4f2e-9e18-543df564b4d4.png)
 
-## 맡은 역할
+## 프로젝트에서 맡은 역할
 스키마 구성
 관리자 계정, 관리자 권한, 관리자 페이지 구성과 구현, SQL 수정
 성과발표회 발표
