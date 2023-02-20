@@ -27,9 +27,9 @@ Vue.js을 통한 외부 오픈 플랫폼과 인재 정보 및 후보사 정보 �
 ![image](https://user-images.githubusercontent.com/83395200/220016796-dfcaeda1-41ed-4f2e-9e18-543df564b4d4.png)
 
 ## 프로젝트에서 맡은 역할
-스키마 구성
-관리자 계정, 관리자 권한, 관리자 페이지 구성과 구현, SQL 수정
-성과발표회 발표
+1. 데이터베이스 스키마 구성
+2. 관리자 계정, 관리자 권한, 관리자 페이지 구성과 구현, SQL 수정
+3. 관리자 성과발표회 발표
 
 ## 데이터베이스 스키마 구성
 ![image](https://user-images.githubusercontent.com/83395200/220015354-8464e5cc-efb9-4b31-b57e-042df59c4219.png)
