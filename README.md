@@ -28,9 +28,9 @@ Vue.js을 통한 외부 오픈 플랫폼과 인재 정보 및 후보사 정보 �
 ![image](https://user-images.githubusercontent.com/83395200/220016752-168ee025-d2ed-47b8-8b08-965109c25511.png)
 ![image](https://user-images.githubusercontent.com/83395200/220016771-3ce606b0-4b35-4297-b4ec-de4e96cffde3.png)
 
-2. 고객사 목록
+ 2. 고객사 목록
 
-![image](https://user-images.githubusercontent.com/83395200/220016796-dfcaeda1-41ed-4f2e-9e18-543df564b4d4.png)
+  ![image](https://user-images.githubusercontent.com/83395200/220016796-dfcaeda1-41ed-4f2e-9e18-543df564b4d4.png)
 
 ## 프로젝트에서 맡은 역할
 1. 데이터베이스 스키마 구성
